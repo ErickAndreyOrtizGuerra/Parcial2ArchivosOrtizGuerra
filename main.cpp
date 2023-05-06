@@ -73,7 +73,7 @@ int main() {
     if (!archivoPequenio2.empty()) {
         std::cout << "el archivo mas chico es: " << archivoPequenio2 << std::endl;
     } else {
-        std::cout << "No se encontraron archivos en el directorio." << std::endl;
+        std::cout << "no se encontraron archivos en el directorio." << std::endl;
     }
 
     return 0;
