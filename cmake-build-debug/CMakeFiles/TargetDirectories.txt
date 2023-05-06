@@ -1,0 +1,3 @@
+C:/Users/HP Core i7/CLionProjects/Parcial2ArchivosOrtizGuerra/cmake-build-debug/CMakeFiles/Parcial2ArchivosOrtizGuerra.dir
+C:/Users/HP Core i7/CLionProjects/Parcial2ArchivosOrtizGuerra/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/HP Core i7/CLionProjects/Parcial2ArchivosOrtizGuerra/cmake-build-debug/CMakeFiles/rebuild_cache.dir
