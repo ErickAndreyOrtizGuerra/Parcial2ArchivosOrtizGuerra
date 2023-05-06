@@ -5,6 +5,19 @@
 
 namespace fs = std::filesystem;
 
+void agregarTextoArchivo(const std::string& nombreArchivo, int numLineas) {
+    std::ofstream archivo(nombreArchivo, std::ios_base::app);
+    if (archivo.is_open()) {
+        for (int i = 1; i <= numLineas; i++) {
+            archivo << "documento numero " << i << " del documento" << std::endl;
+        }
+        archivo.close();
+        std::cout << "Texto agregado al archivo: " << nombreArchivo << std::endl;
+    } else {
+        std::cout << "No se pudo abrir el archivo: " << nombreArchivo << std::endl;
+    }
+}
+
 int main() {
     int numArchivos;
     std::cout << "Ingrese la cantidad de archivos a crear: ";
@@ -31,6 +44,7 @@ int main() {
             archivo << "Contenido del documento " << i << std::endl;
             archivo.close();
             std::cout << "Archivo creado: " << nombreArchivo << std::endl;
+            agregarTextoArchivo(nombreArchivo, i);
         } else {
             std::cout << "No se pudo crear el archivo: " << nombreArchivo << std::endl;
         }
@@ -38,6 +52,7 @@ int main() {
 
     return 0;
 }
+
 
 
 
