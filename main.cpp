@@ -17,6 +17,26 @@ void agregartextoarchivo(const std::string& nombredearchivo, int numerodelineas)
         std::cout << "no se pudo abrir: " << nombredearchivo << std::endl;
     }
 }
+std::string buscarArchivoMasPequenio(const std::string& directorio) {
+    fs::directory_iterator it(directorio);
+    fs::directory_iterator endIt;
+    std::string archivoPequenio;
+    uintmax_t tamanoArchivoMasPequenio = std::numeric_limits<uintmax_t>::max();
+
+    while (it != endIt) {
+        if (fs::is_regular_file(*it)) {
+            const auto& archivo = *it;
+            const uintmax_t tamanoArchivo = fs::file_size(archivo);
+            if (tamanoArchivo < tamanoArchivoMasPequenio) {
+                tamanoArchivoMasPequenio = tamanoArchivo;
+                archivoPequenio = archivo.path().string();
+            }
+        }
+        ++it;
+    }
+
+    return archivoPequenio;
+}
 
 int main() {
     int numArchivos;
@@ -48,6 +68,12 @@ int main() {
         } else {
             std::cout << "no se pudo crear: " << nombredelarchivo2 << std::endl;
         }
+    }
+    std::string archivoPequenio2 = buscarArchivoMasPequenio(directorio);
+    if (!archivoPequenio2.empty()) {
+        std::cout << "el archivo mas chico es: " << archivoPequenio2 << std::endl;
+    } else {
+        std::cout << "No se encontraron archivos en el directorio." << std::endl;
     }
 
     return 0;
