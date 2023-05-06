@@ -5,29 +5,29 @@
 
 namespace fs = std::filesystem;
 
-void agregarTextoArchivo(const std::string& nombreArchivo, int numLineas) {
-    std::ofstream archivo(nombreArchivo, std::ios_base::app);
+void agregartextoarchivo(const std::string& nombredearchivo, int numerodelineas) {
+    std::ofstream archivo(nombredearchivo, std::ios_base::app);
     if (archivo.is_open()) {
-        for (int i = 1; i <= numLineas; i++) {
-            archivo << "documento numero " << i << " del documento" << std::endl;
+        for (int i = 1; i <= numerodelineas; i++) {
+            archivo << "lineas " << i  << std::endl;
         }
         archivo.close();
-        std::cout << "Texto agregado al archivo: " << nombreArchivo << std::endl;
+        std::cout << "texto agregado: " << nombredearchivo << std::endl;
     } else {
-        std::cout << "No se pudo abrir el archivo: " << nombreArchivo << std::endl;
+        std::cout << "no se pudo abrir: " << nombredearchivo << std::endl;
     }
 }
 
 int main() {
     int numArchivos;
-    std::cout << "Ingrese la cantidad de archivos a crear: ";
+    std::cout << "ingrese la cantidad de archivos que desea crear :) : ";
     std::cin >> numArchivos;
 
     std::string directorio;
     if (numArchivos % 2 == 0) {
-        directorio = "C://Users//HP Core i7//Documents//par";
+        directorio = "C://Users//HP Core i7//Documents//par//";
     } else {
-        directorio = "C://Users//HP Core i7//Desktop//Impar";
+        directorio = "C://Users//HP Core i7//Desktop//impar//";
     }
 
     if (!fs::exists(directorio)) {
@@ -38,15 +38,15 @@ int main() {
     }
 
     for (int i = 1; i <= numArchivos; i++) {
-        std::string nombreArchivo = directorio + "documento" + std::to_string(i) + ".txt";
-        std::ofstream archivo(nombreArchivo);
+        std::string nombredelarchivo2 = directorio + "documento" + std::to_string(i) + ".txt";
+        std::ofstream archivo(nombredelarchivo2);
         if (archivo.is_open()) {
-            archivo << "Contenido del documento " << i << std::endl;
+            archivo << "numero de lineas del documento: " << i << std::endl;
             archivo.close();
-            std::cout << "Archivo creado: " << nombreArchivo << std::endl;
-            agregarTextoArchivo(nombreArchivo, i);
+            std::cout << "archivo creado: " << nombredelarchivo2 << std::endl;
+            agregartextoarchivo(nombredelarchivo2, i);
         } else {
-            std::cout << "No se pudo crear el archivo: " << nombreArchivo << std::endl;
+            std::cout << "no se pudo crear: " << nombredelarchivo2 << std::endl;
         }
     }
 

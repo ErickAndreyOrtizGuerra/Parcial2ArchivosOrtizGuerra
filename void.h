@@ -1,1 +1,1 @@
-void *agregarTextoArchivo;
+void *agregartextoarchivo;
